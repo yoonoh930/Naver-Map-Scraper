@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -75,6 +76,13 @@ class NaverMap(BasePage):
         s = self.driver.find_element_by_class_name('srt_tit').text
         return s
 
+    def go_next_page(self):
+        # Go to the next list of the map
+        self.wait_until_finding_class('pre')
+        path = '//ul[@class="lst_site"]/following-sibling::div[@class="paginate_wrap"]//strong//following-sibling::a'
+        next = self.driver.find_element_by_xpath(path)
+        ActionChains(self.driver).move_to_element(next).click().perform()
+
 
 if __name__ == '__main__':
     import os
@@ -84,3 +92,5 @@ if __name__ == '__main__':
     n.type('치킨')
     n.search()
     print(n.search_summary())
+    n.go_next_page()
+    n.go_next_page()
