@@ -13,3 +13,10 @@ class NaverMapLocator(object):
     NO_RESULT = (By.CLASS_NAME, 'no_result')
     SEARCH_RESULT = (By.CLASS_NAME, 'search_result')
     SEARCH_RESULT_TOP = (By.CLASS_NAME, 'search_result_top')
+    search_item_path = '//li[@data-index]'  
+    SEARCH_ITEM_LIST = (By.XPATH, search_item_path)
+
+class ParserLocator(object):
+    """A class for naver map parser"""
+
+    NAME = (By.XPATH, './/dt/child::a')
