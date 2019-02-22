@@ -16,7 +16,13 @@ class NaverMapLocator(object):
     search_item_path = '//li[@data-index]'  
     SEARCH_ITEM_LIST = (By.XPATH, search_item_path)
 
+
 class ParserLocator(object):
     """A class for naver map parser"""
 
     NAME = (By.XPATH, './/dt/child::a')
+    RDNAME = (By.XPATH, './/dd[@class="addr"]')
+    ADMIN = (By.XPATH, './/dd[@class="addr"]/a')
+    ADMINRDNAME = (By.CLASS_NAME, 'ly_roadname')
+    TEL = (By.XPATH, './/dd[@class="tel"]')
+    CAT = (By.XPATH, './/dd[@class="cate"]')
