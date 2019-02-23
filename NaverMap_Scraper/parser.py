@@ -35,6 +35,13 @@ class NaverMapParser(NaverMap):
         d['details'] = webelem.find_element(*ParserLocator.DETAIL).get_attribute('href')
         return d
 
+    def parse_cur_itm_list(self):
+        i = self.search_item_list()
+        i = [n.parse_webelem(elem) for elem in i]
+        return i
+
+
+
 
 if __name__ == '__main__':
     n = NaverMapParser(query='치킨')
