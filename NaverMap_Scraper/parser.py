@@ -32,7 +32,7 @@ class NaverMapParser(NaverMap):
         d['adminrdname'] = self.driver.find_element(*ParserLocator.ADMINRDNAME).text
         d['tel'] = webelem.find_element(*ParserLocator.TEL).text
         d['cat'] = webelem.find_element(*ParserLocator.CAT).text
-
+        d['details'] = webelem.find_element(*ParserLocator.DETAIL).get_attribute('href')
         return d
 
 

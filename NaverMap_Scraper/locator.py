@@ -26,3 +26,4 @@ class ParserLocator(object):
     ADMINRDNAME = (By.CLASS_NAME, 'ly_roadname')
     TEL = (By.XPATH, './/dd[@class="tel"]')
     CAT = (By.XPATH, './/dd[@class="cate"]')
+    DETAIL = (By.XPATH, './/li[@class="detail"]/a')
