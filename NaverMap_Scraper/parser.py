@@ -21,8 +21,10 @@ class NaverMapParser(NaverMap):
             self.search(query)
 
     def parse_webelem(self, webelem):
-        # Gotta implement this. 
-        # Return a dict of information extracted
+        # !Having a trouble collecting ADMINRDNAME data.
+        # ! Need to fix it later.
+        # ! What I can think of it is when we parse it later
+        # !  using detail link, we can add them
         d = dict()
         d['name'] = webelem.find_element(*ParserLocator.NAME).text
         d['roadname'] = webelem.find_element(*ParserLocator.RDNAME).text.rstrip(' 지번')
