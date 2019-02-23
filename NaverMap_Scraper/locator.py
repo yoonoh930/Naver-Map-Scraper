@@ -5,16 +5,17 @@ class NaverMapLocator(object):
 
     SEARCH_BAR = (By.ID, 'search-input')
     CURRENT_TAB = (By.TAG_NAME, 'strong')
-    next_tab_path = '//ul[@class="lst_site"]/following-sibling::div[@class="paginate_wrap"]//strong/following-sibling::a'
-    current_tab_path = '//ul[@class="lst_site"]/following-sibling::div[@class="paginate_wrap"]//strong'
+    next_tab_path = './/ul[@class="lst_site"]/following-sibling::div[@class="paginate_wrap"]//strong/following-sibling::a'
+    current_tab_path = './/ul[@class="lst_site"]/following-sibling::div[@class="paginate_wrap"]//strong'
     NEXT = (By.XPATH, next_tab_path)
     CURRENT = (By.XPATH, current_tab_path)
     SUMMARY = (By.CLASS_NAME, 'srt_tit')
     NO_RESULT = (By.CLASS_NAME, 'no_result')
     SEARCH_RESULT = (By.CLASS_NAME, 'search_result')
     SEARCH_RESULT_TOP = (By.CLASS_NAME, 'search_result_top')
-    search_item_path = '//li[@data-index]'  
+    search_item_path = '//ul[@class="lst_site"]//li[@data-id]'
     SEARCH_ITEM_LIST = (By.XPATH, search_item_path)
+    SITE_LIST = (By.CLASS_NAME, 'lst_site')
 
 
 class ParserLocator(object):

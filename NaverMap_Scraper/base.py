@@ -21,7 +21,7 @@ class BasePage(object):
         return self.driver.title
 
     def get_url(self):
-        return self.drive.current_url
+        return self.driver.current_url
 
     def click(self, element):
         ActionChains(self.driver).move_to_element(element).click().perform()
@@ -39,3 +39,12 @@ class BasePage(object):
             # EC.presence_of_element_located((By.CLASS_NAME, class_name))
         )
         return self.find_element(*locator)
+
+    def wait_until_finding_elements(self, *locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(
+            lambda driver: self.find_elements(*locator)
+            # I am not sure what's the difference between using
+            #   EC and just find_element_by...
+            # EC.presence_of_element_located((By.CLASS_NAME, class_name))
+        )
+        return self.find_elements(*locator)

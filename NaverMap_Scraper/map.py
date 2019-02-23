@@ -64,9 +64,15 @@ class NaverMap(BasePage):
             # Raises NoSuchElementException Error when there is not more tab to click
             next_tab = self.search_result().find_element(*NaverMapLocator.NEXT)
             self.click(next_tab)
+            self.wait_until_finding_element(*NaverMapLocator.SITE_LIST)
 
     def search_item_list(self):
-        return self.search_result().find_elements(*NaverMapLocator.SEARCH_ITEM_LIST)
+        r = self.wait_until_finding_elements(*NaverMapLocator.SEARCH_ITEM_LIST)
+        # return self.search_result().find_elements(*NaverMapLocator.SEARCH_ITEM_LIST)
+        return r
+
+    def current_page(self):
+        return int(self.search_result().find_element(*NaverMapLocator.CURRENT).text)
 
 
 if __name__ == '__main__':
